@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -29,4 +28,26 @@ public class PatientDAOimpl implements PatientDAO {
         return patients;
 
     }
+
+    @Override
+    public Patient findById(int id) {
+        Patient patient = entityManager.find(Patient.class, id);
+        return patient;
+
+    }
+
+    @Override
+    public Patient save(Patient patient) {
+        Patient patient1 = entityManager.merge(patient);
+        return patient1;
+    }
+
+    @Override
+    public Patient deleteById(int id) {
+        Patient patient = entityManager.find(Patient.class, id);
+        entityManager.remove(patient);
+        return patient;
+    }
+
+
 }

@@ -3,10 +3,7 @@ package com.jc.hprest.hpdemo.rest;
 import com.jc.hprest.hpdemo.entity.Patient;
 import com.jc.hprest.hpdemo.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
@@ -26,5 +23,37 @@ public class PatientRestController {
         return patientService.findAll();
     }
 
+    @GetMapping("/patients/{id}")
+    public Patient findById(@PathVariable int id){
+        Patient patient = patientService.findById(id);
+        if (patient == null){
+            throw new RuntimeException("Patient id not found =" + id);
+        }
+        return patient;
+    }
+
+
+    @PostMapping("/patients")
+    public Patient savePacient(@RequestBody Patient patient){
+        patient.setId(0);
+        Patient patient1 = patientService.save(patient);
+        return patient1;
+    }
+
+    @PutMapping("/patients")
+    public Patient updatePatient(@RequestBody Patient patient){
+        Patient patient1 = patientService.save(patient);
+        return patient1;
+    }
+
+    @DeleteMapping("/patients/{id}")
+    public String deletePatient(@PathVariable int id) {
+        Patient patient = patientService.findById(id);
+        if (patient == null) {
+            throw new RuntimeException("Patient id not found = " + id);
+        }
+        patientService.deleteById(id);
+        return "Deleted patient = " + patient;
+    }
 
 }
