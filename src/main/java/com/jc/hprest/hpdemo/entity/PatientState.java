@@ -17,8 +17,8 @@ public class PatientState {
     private PatientStateEnum state;
 
     public enum PatientStateEnum {
-        DISCHARGED,
-        NOT_DISCHARGED
+        discharged,
+        not_discharged
     }
 
     public PatientState(){

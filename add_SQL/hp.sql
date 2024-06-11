@@ -1,3 +1,5 @@
+
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -5,13 +7,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema hospital
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `hospital` ;
 
+-- -----------------------------------------------------
+-- Schema hospital
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `hospital` DEFAULT CHARACTER SET utf8 ;
 USE `hospital` ;
 
 -- -----------------------------------------------------
--- Table `patient_state`
+-- Table `hospital`.`patient_state`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`patient_state` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`patient_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `state` ENUM("discharged", "not discharged") NOT NULL,
@@ -20,14 +28,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `patient`
+-- Table `hospital`.`patient`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`patient` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`patient` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `cep` VARCHAR(45) NOT NULL,
   `sickness` VARCHAR(45) NOT NULL,
-  `state` VARCHAR(45) NOT NULL DEFAULT 'indefinite',
   `id_pat_state` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_patient_3_idx` (`id_pat_state` ASC) VISIBLE,
@@ -40,8 +49,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `attendant`
+-- Table `hospital`.`attendant`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`attendant` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`attendant` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -51,8 +62,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `emergency_service`
+-- Table `hospital`.`emergency_service`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`emergency_service` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`emergency_service` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_ambulance` INT NOT NULL,
@@ -61,8 +74,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `doctor_state`
+-- Table `hospital`.`doctor_state`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`doctor_state` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`doctor_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `state` ENUM("busy", "unoccupied") NOT NULL,
@@ -71,8 +86,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `especialization`
+-- Table `hospital`.`especialization`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`especialization` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`especialization` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `especialization` VARCHAR(45) NOT NULL,
@@ -81,8 +98,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `doctor`
+-- Table `hospital`.`doctor`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`doctor` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`doctor` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -106,8 +125,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `room_state`
+-- Table `hospital`.`room_state`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`room_state` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`room_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `state` ENUM("occupied", "void") NOT NULL,
@@ -116,8 +137,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `room`
+-- Table `hospital`.`room`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`room` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`room` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `number` VARCHAR(10) NOT NULL,
@@ -133,8 +156,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `hospitalization`
+-- Table `hospital`.`hospitalization`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`hospitalization` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`hospitalization` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_doctor` INT NOT NULL,
@@ -163,8 +188,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `local_service`
+-- Table `hospital`.`local_service`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`local_service` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`local_service` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_hospitalization` INT NOT NULL,
@@ -179,8 +206,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `service`
+-- Table `hospital`.`service`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`service` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`service` (
   `id` INT NOT NULL,
   `id_local_service` INT NOT NULL,
@@ -202,8 +231,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `hospital`
+-- Table `hospital`.`hospital`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`hospital` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`hospital` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -227,8 +258,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ambulance_state`
+-- Table `hospital`.`ambulance_state`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`ambulance_state` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`ambulance_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `state` ENUM("parked", "active") NOT NULL,
@@ -237,8 +270,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ambulance`
+-- Table `hospital`.`ambulance`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`ambulance` ;
+
 CREATE TABLE IF NOT EXISTS `hospital`.`ambulance` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `plate` VARCHAR(45) NOT NULL,

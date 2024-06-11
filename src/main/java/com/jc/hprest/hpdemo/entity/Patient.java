@@ -22,9 +22,6 @@ public class Patient {
     @Column(name = "sickness")
     private String sickness;
 
-    @Column(name = "state")
-    private String state;
-
     @ManyToOne
     @JoinColumn(name = "id_pat_state")
     private PatientState patientState;
@@ -32,11 +29,10 @@ public class Patient {
     public Patient(){
     }
 
-    public Patient(String name, String cep, String sickness, String state, PatientState patientState) {
+    public Patient(String name, String cep, String sickness, PatientState patientState) {
         this.name = name;
         this.cep = cep;
         this.sickness = sickness;
-        this.state = state;
         this.patientState = patientState;
     }
 
@@ -72,13 +68,6 @@ public class Patient {
         this.sickness = sickness;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
 
     public PatientState getPatientState() {
         return patientState;
@@ -95,7 +84,6 @@ public class Patient {
                 ", name='" + name + '\'' +
                 ", cep='" + cep + '\'' +
                 ", sickness='" + sickness + '\'' +
-                ", state='" + state + '\'' +
                 ", patientState=" + patientState +
                 '}';
     }
