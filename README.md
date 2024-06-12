@@ -4,7 +4,7 @@
   - [Path base (/hospital)
   - [Endpoints focused in management 3 entities (Hospital, Doctor, Patient)]
 
- <Example findAll output JSON
+ <>Example findAll output JSON<>
 
 > Doctor. /hospital/doctors
 >     {
