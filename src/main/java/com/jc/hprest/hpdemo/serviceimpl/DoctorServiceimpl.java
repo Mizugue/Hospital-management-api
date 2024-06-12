@@ -2,7 +2,7 @@ package com.jc.hprest.hpdemo.serviceimpl;
 
 
 import com.jc.hprest.hpdemo.dao.DoctorRepository;
-import com.jc.hprest.hpdemo.entity.Doctor;
+import com.jc.hprest.hpdemo.entity.triad.Doctor;
 import com.jc.hprest.hpdemo.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,5 +1,6 @@
-package com.jc.hprest.hpdemo.entity;
+package com.jc.hprest.hpdemo.entity.thirdparty;
 
+import com.jc.hprest.hpdemo.entity.states.AmbulanceState;
 import jakarta.persistence.*;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.jc.hprest.hpdemo.entity;
+package com.jc.hprest.hpdemo.entity.services;
 
 import jakarta.persistence.*;
 

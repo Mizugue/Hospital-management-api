@@ -1,6 +1,7 @@
-package com.jc.hprest.hpdemo.entity;
+package com.jc.hprest.hpdemo.entity.triad;
 
 
+import com.jc.hprest.hpdemo.entity.states.PatientState;
 import jakarta.persistence.*;
 
 

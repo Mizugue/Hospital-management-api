@@ -1,5 +1,7 @@
-package com.jc.hprest.hpdemo.entity;
+package com.jc.hprest.hpdemo.entity.triad;
 
+import com.jc.hprest.hpdemo.entity.thirdparty.DoctorEspecialization;
+import com.jc.hprest.hpdemo.entity.states.DoctorState;
 import jakarta.persistence.*;
 
 @Entity

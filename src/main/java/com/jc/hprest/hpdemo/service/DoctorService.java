@@ -1,6 +1,6 @@
 package com.jc.hprest.hpdemo.service;
 
-import com.jc.hprest.hpdemo.entity.Doctor;
+import com.jc.hprest.hpdemo.entity.triad.Doctor;
 import java.util.List;
 
 public interface DoctorService {

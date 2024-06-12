@@ -1,9 +1,8 @@
 package com.jc.hprest.hpdemo.service;
 
-import com.jc.hprest.hpdemo.entity.Hospital;
+import com.jc.hprest.hpdemo.entity.triad.Hospital;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface HospitalService {
 

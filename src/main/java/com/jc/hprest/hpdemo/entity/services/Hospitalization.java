@@ -1,5 +1,8 @@
-package com.jc.hprest.hpdemo.entity;
+package com.jc.hprest.hpdemo.entity.services;
 
+import com.jc.hprest.hpdemo.entity.triad.Doctor;
+import com.jc.hprest.hpdemo.entity.triad.Patient;
+import com.jc.hprest.hpdemo.entity.thirdparty.Room;
 import jakarta.persistence.*;
 
 @Entity

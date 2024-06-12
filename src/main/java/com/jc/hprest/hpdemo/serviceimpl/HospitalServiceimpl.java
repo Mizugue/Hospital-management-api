@@ -1,7 +1,7 @@
 package com.jc.hprest.hpdemo.serviceimpl;
 
 import com.jc.hprest.hpdemo.dao.HospitalRepository;
-import com.jc.hprest.hpdemo.entity.Hospital;
+import com.jc.hprest.hpdemo.entity.triad.Hospital;
 import com.jc.hprest.hpdemo.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

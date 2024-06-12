@@ -1,8 +1,7 @@
 package com.jc.hprest.hpdemo.service;
 
-import com.jc.hprest.hpdemo.entity.Patient;
+import com.jc.hprest.hpdemo.entity.triad.Patient;
 import java.util.List;
-import java.util.Optional;
 
 
 public interface PatientService {

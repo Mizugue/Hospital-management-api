@@ -1,9 +1,7 @@
 package com.jc.hprest.hpdemo.rest;
 
-import com.jc.hprest.hpdemo.entity.Doctor;
-import com.jc.hprest.hpdemo.entity.Patient;
+import com.jc.hprest.hpdemo.entity.triad.Doctor;
 import com.jc.hprest.hpdemo.service.DoctorService;
-import com.jc.hprest.hpdemo.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
