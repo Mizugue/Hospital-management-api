@@ -41,4 +41,12 @@ public class DoctorState {
     public void setState(DoctorStateEnum state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "DoctorState{" +
+                "id=" + id +
+                ", state=" + state +
+                '}';
+    }
 }

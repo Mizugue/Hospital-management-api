@@ -60,6 +60,37 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `hospital`.`ambulance_state`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`ambulance_state` ;
+
+CREATE TABLE IF NOT EXISTS `hospital`.`ambulance_state` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `state` ENUM("parked", "active") NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `hospital`.`ambulance`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hospital`.`ambulance` ;
+
+CREATE TABLE IF NOT EXISTS `hospital`.`ambulance` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `plate` VARCHAR(45) NOT NULL,
+  `id_amb_state` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_ambulance_3_idx` (`id_amb_state` ASC) VISIBLE,
+  CONSTRAINT `fk_ambulance_3`
+    FOREIGN KEY (`id_amb_state`)
+    REFERENCES `hospital`.`ambulance_state` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `hospital`.`emergency_service`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `hospital`.`emergency_service` ;
@@ -67,7 +98,13 @@ DROP TABLE IF EXISTS `hospital`.`emergency_service` ;
 CREATE TABLE IF NOT EXISTS `hospital`.`emergency_service` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_ambulance` INT NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `fk_emergency_service_1_idx` (`id_ambulance` ASC) VISIBLE,
+  CONSTRAINT `fk_emergency_service_1`
+    FOREIGN KEY (`id_ambulance`)
+    REFERENCES `hospital`.`ambulance` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -209,7 +246,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `hospital`.`service` ;
 
 CREATE TABLE IF NOT EXISTS `hospital`.`service` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `id_local_service` INT NOT NULL,
   `id_emergency_service` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -250,44 +287,6 @@ CREATE TABLE IF NOT EXISTS `hospital`.`hospital` (
   CONSTRAINT `fk_hospital_2`
     FOREIGN KEY (`id_service`)
     REFERENCES `hospital`.`service` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `hospital`.`ambulance_state`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `hospital`.`ambulance_state` ;
-
-CREATE TABLE IF NOT EXISTS `hospital`.`ambulance_state` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `state` ENUM("parked", "active") NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `hospital`.`ambulance`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `hospital`.`ambulance` ;
-
-CREATE TABLE IF NOT EXISTS `hospital`.`ambulance` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `plate` VARCHAR(45) NOT NULL,
-  `id_emergency_service` INT NOT NULL,
-  `id_amb_state` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_ambulance_3_idx` (`id_amb_state` ASC) VISIBLE,
-  INDEX `fk_ambulance_2_idx` (`id_emergency_service` ASC) VISIBLE,
-  CONSTRAINT `fk_ambulance_2`
-    FOREIGN KEY (`id_emergency_service`)
-    REFERENCES `hospital`.`emergency_service` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ambulance_3`
-    FOREIGN KEY (`id_amb_state`)
-    REFERENCES `hospital`.`ambulance_state` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

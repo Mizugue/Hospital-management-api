@@ -36,4 +36,12 @@ public class DoctorEspecialization {
     public void setEspecialization(String especialization) {
         this.especialization = especialization;
     }
+
+    @Override
+    public String toString() {
+        return "DoctorEspecialization{" +
+                "id=" + id +
+                ", especialization='" + especialization + '\'' +
+                '}';
+    }
 }

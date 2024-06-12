@@ -29,7 +29,7 @@ public class DoctorRestController {
     public Doctor findById(@PathVariable int id){
         Doctor doctor = doctorService.findById(id);
         if (doctor == null){
-            throw new RuntimeException("Patient id not found =" + id);
+            throw new RuntimeException("Doctor id not found =" + id);
         }
         return doctor;
     }
@@ -55,7 +55,7 @@ public class DoctorRestController {
             throw new RuntimeException("Doctor id not found = " + id);
         }
         doctorService.deleteById(id);
-        return "Deleted patient = " + doctor;
+        return "Deleted doctor = " + doctor;
     }
 
 }
