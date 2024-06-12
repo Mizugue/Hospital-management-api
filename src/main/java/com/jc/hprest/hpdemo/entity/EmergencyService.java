@@ -13,7 +13,7 @@ public class EmergencyService {
     private int id;
 
     @ManyToOne
-    @JoinColumn("id_ambulance")
+    @JoinColumn(name = "id_ambulance")
     private Ambulance ambulance;
 
     public EmergencyService(){

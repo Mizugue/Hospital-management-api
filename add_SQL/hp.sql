@@ -166,7 +166,7 @@ DROP TABLE IF EXISTS `hospital`.`room_state` ;
 
 CREATE TABLE IF NOT EXISTS `hospital`.`room_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `state` ENUM("occupied", "void") NOT NULL,
+  `state` ENUM("occupied", "vacant") NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

@@ -13,7 +13,7 @@ public class LocalService {
     private int id;
 
     @ManyToOne
-    @JoinColumn("id_hospitalization")
+    @JoinColumn(name = "id_hospitalization")
     private Hospitalization hospitalization;
 
     public LocalService(){

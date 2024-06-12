@@ -45,7 +45,7 @@ VALUES
 INSERT INTO room_state (state)
 VALUES
     ('occupied'),
-    ('void');
+    ('vacant');
 
 INSERT INTO room (number, id_room_state)
 VALUES
