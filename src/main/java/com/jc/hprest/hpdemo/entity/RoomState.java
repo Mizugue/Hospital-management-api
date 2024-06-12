@@ -2,6 +2,8 @@ package com.jc.hprest.hpdemo.entity;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "room_state")
 public class RoomState {
 
     @Id

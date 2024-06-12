@@ -1,7 +1,7 @@
 INSERT INTO patient_state (state)
 VALUES
     ('discharged'),
-    ('not discharged');
+    ('not_discharged');
 
 INSERT INTO patient (name, cep, sickness, id_pat_state)
 VALUES

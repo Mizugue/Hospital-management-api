@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS `hospital`.`patient_state` ;
 
 CREATE TABLE IF NOT EXISTS `hospital`.`patient_state` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `state` ENUM("discharged", "not discharged") NOT NULL,
+  `state` ENUM("discharged", "not_discharged") NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

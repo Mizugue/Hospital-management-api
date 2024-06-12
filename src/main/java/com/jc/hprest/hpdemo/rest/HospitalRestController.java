@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/hp")
+@RequestMapping("/hospital")
 public class HospitalRestController {
 
 
@@ -21,12 +21,12 @@ public class HospitalRestController {
     }
 
 
-    @GetMapping("/hps")
+    @GetMapping("")
     public List<Hospital> findAll() {
         return hospitalService.findAll();
     }
 
-    @GetMapping("/hps/{id}")
+    @GetMapping("/{id}")
     public Hospital findById(@PathVariable int id) {
         Hospital hospital = hospitalService.findById(id);
         if (hospital == null) {
@@ -35,20 +35,20 @@ public class HospitalRestController {
         return hospital;
     }
 
-    @PostMapping("/hps")
+    @PostMapping("")
     public Hospital saveHospital(@RequestBody Hospital hospital) {
         hospital.setId(0);
         Hospital hospital1 = hospitalService.save(hospital);
         return hospital1;
     }
 
-    @PutMapping("/hps")
+    @PutMapping("")
     public Hospital updateHospital(@RequestBody Hospital hospital) {
         Hospital hospital1 = hospitalService.save(hospital);
         return hospital1;
     }
 
-    @DeleteMapping("/hps/{id}")
+    @DeleteMapping("/{id}")
     public String deleteHospital(@PathVariable int id) {
         Hospital hospital = hospitalService.findById(id);
         if (hospital == null) {

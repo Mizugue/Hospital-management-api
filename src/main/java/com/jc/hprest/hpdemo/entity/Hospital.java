@@ -14,6 +14,9 @@ public class Hospital {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "cep")
+    private String cep;
+
     @ManyToOne
     @JoinColumn(name = "id_attendant")
     private Attendant attendant;
@@ -25,10 +28,11 @@ public class Hospital {
     public Hospital(){
     }
 
-    public Hospital(String name, Attendant attendant, Service service) {
+    public Hospital(String name, String cep, Attendant attendant, Service service) {
         this.name = name;
         this.attendant = attendant;
         this.service = service;
+        this.cep = cep;
     }
 
 
@@ -64,11 +68,19 @@ public class Hospital {
         this.service = service;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
     @Override
     public String toString() {
         return "Hospital{" +
                 "id=" + id +
+                "cep=" + cep +
                 ", name='" + name + '\'' +
                 ", attendant=" + attendant +
                 ", service=" + service +
