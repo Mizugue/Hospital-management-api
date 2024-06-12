@@ -1,8 +1,8 @@
 # Hospital management api
 - *I. Note *
-  - [CRUD (findAll . findById . save . deleteById)]
+  - [CRUD]
   - [Path base (/hospital)
-  - [Endpoints focused in management 3 entities (Hospital, Doctor, Patient)]
+  - [10 Endpoints with focus in 3 entities (Hospital, Doctor, Patient)]
 
  <>Example findAll output JSON<>
 
@@ -134,7 +134,7 @@
                 }
             }
 
-====================================================================================================
+===========================================================================
 
 
 
