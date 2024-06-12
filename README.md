@@ -57,7 +57,7 @@
     }
     
 ------------------
-> Hospital. /hospital
+> Hospital. /hospital/hospitals
 >     {
         "id": 1,
         "name": "Hospital A",
