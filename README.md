@@ -8,117 +8,131 @@
 
 > Doctor. /hospital/doctors
 >     {
-        "id": 1,
-        "name": "Dr. Silva",
-        "crm": "123456",
-        "doctorEspecialization": {
-            "id": 1,
-            "especialization": "Cardiologia"
-        },
-        "doctorState": {
-            "id": 1,
-            "state": "busy"
-        }
-    },
-    {
-        "id": 2,
-        "name": "Dr. Santos",
-        "crm": "654321",
-        "doctorEspecialization": {
-            "id": 2,
-            "especialization": "Ortopedia"
-        },
-        "doctorState": {
-            "id": 2,
-            "state": "unoccupied"
-        }
-    }
+    "_embedded": {
+        "doctors": [
+            {
+                "name": "Dr. Silva",
+                "crm": "123456",
+                "doctorEspecialization": {
+                    "especialization": "Cardiologia"
+                },
+                "doctorState": {
+                    "state": "busy"
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/hospital/doctors/1"
+                    },
+                    "doctor": {
+                        "href": "http://localhost:8080/hospital/doctors/1"
+                    }
+                }
+            },
+            {
+                "name": "Dr. Santos",
+                "crm": "654321",
+                "doctorEspecialization": {
+                    "especialization": "Ortopedia"
+                },
+                "doctorState": {
+                    "state": "unoccupied"
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/hospital/doctors/2"
+                    },
+                    "doctor": {
+                        "href": "http://localhost:8080/hospital/doctors/2"
+                    }
+                }
+            }
 ------------------
 > Patient. hospital/patients
 >     {
-        "id": 1,
-        "name": "João Sebastião",
-        "cep": "12345-678",
-        "sickness": "Gripe",
-        "patientState": {
-            "id": 1,
-            "state": "discharged"
-        }
-    },
-    {
-        "id": 2,
-        "name": "Maria das graças assis",
-        "cep": "98765-432",
-        "sickness": "Fratura",
-        "patientState": {
-            "id": 2,
-            "state": "not_discharged"
-        }
-    }
+    "_embedded": {
+        "patients": [
+            {
+                "name": "João Sebastião",
+                "cep": "12345-678",
+                "sickness": "Gripe",
+                "patientState": {
+                    "state": "discharged"
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/hospital/patients/1"
+                    },
+                    "patient": {
+                        "href": "http://localhost:8080/hospital/patients/1"
+                    }
+                }
+            },
+            {
+                "name": "Maria das graças assis",
+                "cep": "98765-432",
+                "sickness": "Fratura",
+                "patientState": {
+                    "state": "not_discharged"
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/hospital/patients/2"
+                    },
+                    "patient": {
+                        "href": "http://localhost:8080/hospital/patients/2"
+                    }
+                }
+            }
     
 ------------------
 > Hospital. /hospital/hospitals
 >     {
-        "id": 1,
-        "name": "Hospital A",
-        "cep": "12345-678",
-        "attendant": {
-            "id": 1,
-            "name": "Ana",
-            "cpf": "12345678901"
-        },
-        "service": {
-            "id": 1,
-            "localService": {
-                "id": 1,
-                "hospitalization": {
-                    "id": 1,
-                    "doctor": {
-                        "id": 1,
-                        "name": "Dr. Silva",
-                        "crm": "123456",
-                        "doctorEspecialization": {
-                            "id": 1,
-                            "especialization": "Cardiologia"
-                        },
-                        "doctorState": {
-                            "id": 1,
-                            "state": "busy"
+    "_embedded": {
+        "hospitals": [
+            {
+                "name": "Hospital A",
+                "cep": "12345-678",
+                "attendant": {
+                    "name": "Ana",
+                    "cpf": "12345678901"
+                },
+                "service": {
+                    "localService": {
+                        "hospitalization": {
+                            "room": {
+                                "number": "101",
+                                "roomState": {
+                                    "roomStateEnum": "occupied"
+                                }
+                            },
+                            "_links": {
+                                "patient": {
+                                    "href": "http://localhost:8080/hospital/patients/1"
+                                },
+                                "doctor": {
+                                    "href": "http://localhost:8080/hospital/doctors/1"
+                                }
+                            }
                         }
                     },
-                    "patient": {
-                        "id": 1,
-                        "name": "João Sebastião",
-                        "cep": "12345-678",
-                        "sickness": "Gripe",
-                        "patientState": {
-                            "id": 1,
-                            "state": "discharged"
-                        }
-                    },
-                    "room": {
-                        "id": 1,
-                        "number": "101",
-                        "roomState": {
-                            "id": 1,
-                            "roomStateEnum": "occupied"
+                    "emergencyService": {
+                        "ambulance": {
+                            "plate": "XYZ5678",
+                            "ambulanceState": {
+                                "ambulanceStateEnum": "active"
+                            }
                         }
                     }
-                }
-            },
-            "emergencyService": {
-                "id": 1,
-                "ambulance": {
-                    "id": 2,
-                    "plate": "XYZ5678",
-                    "ambulanceState": {
-                        "id": 2,
-                        "ambulanceStateEnum": "active"
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8080/hospital/hospitals/1"
+                    },
+                    "hospital": {
+                        "href": "http://localhost:8080/hospital/hospitals/1"
                     }
                 }
             }
-        }
-    },
 
 ====================================================================================================
 
