@@ -5,7 +5,7 @@
   - [Endpoints focused in management 3 entities (Hospital, Doctor, Patient)]
 
  Example findAll output JSON
-''''''''''''''''''''''''''''
+
 > Doctor. /hospital/doctors
 >     {
         "id": 1,
